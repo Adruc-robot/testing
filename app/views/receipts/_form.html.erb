@@ -1,0 +1,58 @@
+<%= form_with(model: receipt, data: { controller: "ocr" }) do |form| %>
+  <% if receipt.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(receipt.errors.count, "error") %> prohibited this receipt from being saved:</h2>
+
+      <ul>
+        <% receipt.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.number_field :user_id, id: :receipt_user_id, value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :business_id, style: "display: block" %>
+    <%#= form.text_field :business_id %>
+    <%= form.select :business_id, @businesses.map { |b| [b.name, b.id ] },{ prompt: "Select a business"}, {class: "form-select"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image, data: { ocr_target: "file", action: "change->ocr#upload" } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :image_description, style: "display: block" %>
+    <%= form.text_area :image_description, class: "form-control", data: { ocr_target: "image_description" } %>
+  </div>
+  
+  <div data-controller="categories">
+    <div class="form-group">
+      <%= form.label :category, style: "display: block" %>
+      <%= form.select :list, @lists.map { |l| [l.name, l.id ] }, { prompt: "Select a category"}, { class: "form-select", data: { action: "change->categories#change"}} %>
+    </div>
+    <div class="form-group">
+      <%= form.label :sub_category, style: "display: block" %>
+      <%= form.select :list_entry, [],{ prompt: "Select a subcategory"}, {class: "form-select",data: { categories_target: "listSelect" } } %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :subtotal, style: "display: block" %>
+    <%= form.text_field :subtotal, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :total, style: "display: block" %>
+    <%= form.number_field :total, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

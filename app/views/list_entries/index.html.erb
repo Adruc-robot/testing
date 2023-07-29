@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>List entries</h1>
+
+<!--<div id="list_entries">
+  <%# @list_entries.each do |list_entry| %>
+    <%#= render list_entry %>
+    <p>
+      <%#= link_to "Show this list entry", list_entry %>
+    </p>
+  <%# end %>
+</div>-->
+
+<table id="lists" class="table table-striped" data-controller="dataTables">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Order number</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @list_entries.each do |list_entry| %>
+      <%= render list_entry %>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "New list entry", new_list_list_entry_path(@list) %>

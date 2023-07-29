@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Receipts</h1>
+
+<!--<div id="receipts">
+  <%# @receipts.each do |receipt| %>
+    <%#= render receipt %>
+    <p>
+      <%#= link_to "Show this receipt", receipt %>
+    </p>
+  <%# end %>
+</div>-->
+<table id="receipts" class="table table-striped" data-controller="dataTables">
+  <thead>
+    <tr>
+      <th>Business</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Subtotal</th>
+      <th>Total</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @receipts.each do |receipt| %>
+      <%= render receipt %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New receipt", new_receipt_path %>

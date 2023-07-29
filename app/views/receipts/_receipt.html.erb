@@ -1,0 +1,29 @@
+<!--<div id="<%#= dom_id receipt %>">
+  
+  <p>
+    <strong>Business:</strong>
+    <%#= receipt.business.name %>
+  </p>
+
+  <p>
+    <strong>Subtotal:</strong>
+    <%#= receipt.subtotal %>
+  </p>
+
+  <p>
+    <strong>Total:</strong>
+    <%#= receipt.total %>
+  </p>
+
+</div>-->
+
+
+<tr id="<%= dom_id receipt %>">
+  <td><%= receipt.business.name %></td>
+  <td><%#= receipt.list.name %></td>
+  <td><%#= receipt.list_entry.name %>
+  <td><%= receipt.subtotal %></td>
+  <td><%= receipt.total %></td>
+  <td class="dt-center"><%= link_to edit_receipt_path(receipt), class: "aOverride" do %><i class="bi bi-pencil"></i><% end %></td>
+  <td class="dt-center"><%= link_to [receipt], data: {turbo_method: :delete, turbo_confirm: "Delete receipt?"}, class: "aOverride" do %><i class="bi bi-trash3"></i><% end %></td>
+</tr>

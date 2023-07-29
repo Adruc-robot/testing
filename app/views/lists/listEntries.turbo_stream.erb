@@ -1,0 +1,3 @@
+<%= turbo_stream.update @target do %>
+    <%= options_for_select @list_entries.map { |le| [le.name, le.id ] } %>
+<% end %>

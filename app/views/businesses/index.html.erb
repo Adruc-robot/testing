@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Businesses</h1>
+
+<!--<div id="businesses">
+  <%# @businesses.each do |business| %>
+    <%#= render business %>
+    <p>
+      <%#= link_to "Show this business", business %>
+    </p>
+  <%# end %>
+</div>-->
+<table id="businesses" class="table table-striped" data-controller="dataTables">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone number</th>
+      <th>Address</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @businesses.each do |business| %>
+      <%= render business %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New business", new_business_path %>

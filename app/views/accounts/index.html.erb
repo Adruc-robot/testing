@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Accounts</h1>
+
+<!--<div id="accounts" data-controller="dataTables">
+  <%# @accounts.each do |account| %>
+    <%#= render account %>
+    <p>
+      <%#= link_to "Show this account", account %>
+    </p>
+  <%# end %>
+</div>
+
+<%#= link_to "New account", new_account_path %>-->
+
+<table id="accounts" class="table table-striped" data-controller="dataTables">
+  <thead>
+    <tr>
+      <th>Account Number</th>
+      <th>Alias</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each do |account| %>
+    <%= render account %>
+    <!--<p>
+      <%#= link_to "Show this account", account %>
+    </p>-->
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New account", new_account_path %>
