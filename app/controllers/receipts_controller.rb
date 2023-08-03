@@ -5,6 +5,8 @@ class ReceiptsController < ApplicationController
   def index
     #@receipts = Receipt.all
     @receipts = current_user.receipts
+    #@list = List.where(id: receipt.list_id)
+    #@list_entry = ListEntry.where(id: receipt.list_entry.id)
   end
 
   # GET /receipts/1 or /receipts/1.json
@@ -17,12 +19,15 @@ class ReceiptsController < ApplicationController
     @receipt = Receipt.new
     @businesses = Business.where(user_id: current_user.id)
     @lists = List.where(user_id: current_user.id)
+    @accounts = Account.where(user_id: current_user.id)
   end
 
   # GET /receipts/1/edit
   def edit
     @businesses = Business.where(user_id: current_user.id)
     @lists = List.where(user_id: current_user.id)
+    @list_entries = ListEntry.where(list_id: @receipt.list_id)
+    @accounts = Account.where(user_id: current_user.id)
   end
 
   # POST /receipts or /receipts.json
@@ -31,7 +36,8 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       if @receipt.save
-        format.html { redirect_to receipt_url(@receipt), notice: "Receipt was successfully created." }
+        format.html { redirect_to receipts_path, notice: "Receipt was successfully created." }
+        #format.html { redirect_to receipt_url(@receipt), notice: "Receipt was successfully created." }
         format.json { render :show, status: :created, location: @receipt }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +50,8 @@ class ReceiptsController < ApplicationController
   def update
     respond_to do |format|
       if @receipt.update(receipt_params)
-        format.html { redirect_to receipt_url(@receipt), notice: "Receipt was successfully updated." }
+        format.html { redirect_to receipts_path, notice: "Receipt was successfully updated." }
+        #format.html { redirect_to receipt_url(@receipt), notice: "Receipt was successfully updated." }
         format.json { render :show, status: :ok, location: @receipt }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -71,6 +78,6 @@ class ReceiptsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def receipt_params
-      params.require(:receipt).permit(:user_id, :business_id, :subtotal, :total, :image)
+      params.require(:receipt).permit(:user_id, :business_id, :subtotal, :total, :image, :image_description, :list_id, :list_entry_id, :account_id)
     end
 end

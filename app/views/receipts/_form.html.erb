@@ -14,7 +14,10 @@
   <div>
     <%= form.number_field :user_id, id: :receipt_user_id, value: current_user.id, type: :hidden %>
   </div>
-
+  <div class="form-group">
+    <%= form.label :account_id, style: "display: block" %>
+    <%= form.select :account_id, @accounts.map { |a| [a.alias, a.id] }, {prompt: "Select an account"}, {class: "form-select"}%>
+  </div>
   <div class="form-group">
     <%= form.label :business_id, style: "display: block" %>
     <%#= form.text_field :business_id %>
@@ -23,33 +26,41 @@
 
   <div class="form-group">
     <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image, data: { ocr_target: "file", action: "change->ocr#upload" } %>
+    <%= form.file_field :image, data: { ocr_target: "file", action: "change->ocr#upload" }, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :image_description, style: "display: block" %>
-    <%= form.text_area :image_description, class: "form-control", data: { ocr_target: "image_description" } %>
+    <%= form.text_area :image_description, class: "form-control", data: { ocr_target: "image_description" }, class: "form-control" %>
   </div>
   
   <div data-controller="categories">
     <div class="form-group">
       <%= form.label :category, style: "display: block" %>
-      <%= form.select :list, @lists.map { |l| [l.name, l.id ] }, { prompt: "Select a category"}, { class: "form-select", data: { action: "change->categories#change"}} %>
+      <% if receipt.list_id == "" %>
+        <%= form.select :list_id, @lists.map { |l| [l.name, l.id ] }, { prompt: "Select a category"}, { class: "form-select", data: { action: "change->categories#change"}}, selected: receipt.list_id %>  
+      <% else %>
+        <%= form.select :list_id, @lists.map { |l| [l.name, l.id ] }, { prompt: "Select a category"}, { class: "form-select", data: { action: "change->categories#change"}} %>  
+      <% end %>
     </div>
     <div class="form-group">
       <%= form.label :sub_category, style: "display: block" %>
-      <%= form.select :list_entry, [],{ prompt: "Select a subcategory"}, {class: "form-select",data: { categories_target: "listSelect" } } %>
+      <% if receipt.list_entry_id == "" %>
+        <%= form.select :list_entry_id, [],{ prompt: "Select a subcategory"}, {class: "form-select",data: { categories_target: "listSelect" } } %>
+      <% else %>
+        <%= form.select :list_entry_id, @list_entries.map { |le| [le.name, le.id] },{ prompt: "Select a subcategory"}, {class: "form-select", data: { categories_target: "listSelect" } } %>
+      <% end %>
     </div>
   </div>
   
   <div class="form-group">
     <%= form.label :subtotal, style: "display: block" %>
-    <%= form.text_field :subtotal, class: "form-control" %>
+    <%= form.number_field :subtotal, step: 0.01, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :total, style: "display: block" %>
-    <%= form.number_field :total, class: "form-control" %>
+    <%= form.number_field :total, step: 0.01, class: "form-control" %>
   </div>
 
   <div>

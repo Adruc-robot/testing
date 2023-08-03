@@ -50,7 +50,8 @@ class ListEntriesController < ApplicationController
     #somthing probalby needs to be here - reference recipe steps or just mirror the @list_entry from above
     respond_to do |format|
       if @list_entry.update(list_entry_params)
-        format.html { redirect_to list_entry_url(@list_entry), notice: "List entry was successfully updated." }
+        format.html { redirect_to list_list_entries_path(@list_entry.list), notice: "List entry was successfully updated."}
+        #format.html { redirect_to list_entry_url(@list_entry), notice: "List entry was successfully updated." }
         format.json { render :show, status: :ok, location: @list_entry }
       else
         format.html { render :edit, status: :unprocessable_entity }

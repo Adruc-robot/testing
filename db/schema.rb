@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_223718) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_01_201450) do
   create_table "accounts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "account_number"
@@ -94,10 +94,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_223718) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image_description"
-    t.string "list"
-    t.string "list_entry"
     t.integer "list_id"
     t.integer "list_entry_id"
+    t.integer "account_id"
+    t.index ["account_id"], name: "index_receipts_on_account_id"
     t.index ["business_id"], name: "index_receipts_on_business_id"
     t.index ["list_entry_id"], name: "index_receipts_on_list_entry_id"
     t.index ["list_id"], name: "index_receipts_on_list_id"
@@ -122,6 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_223718) do
   add_foreign_key "businesses", "users"
   add_foreign_key "list_entries", "lists"
   add_foreign_key "lists", "users"
+  add_foreign_key "receipts", "accounts"
   add_foreign_key "receipts", "businesses"
   add_foreign_key "receipts", "list_entries"
   add_foreign_key "receipts", "lists"

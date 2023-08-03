@@ -26,7 +26,8 @@ class BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.save
-        format.html { redirect_to business_url(@business), notice: "Business was successfully created." }
+        #format.html { redirect_to business_url(@business), notice: "Business was successfully created." }
+        format.html { redirect_to businesses_path, notice: "Business was sucessfully created."}
         format.json { render :show, status: :created, location: @business }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +42,7 @@ class BusinessesController < ApplicationController
       if @business.update(business_params)
         format.html { redirect_to businesses_path, notice: "Business was successfully updated."  }
         #format.html { redirect_to business_url(@business), notice: "Business was successfully updated." }
-        #format.json { render :show, status: :ok, location: @business }
+        format.json { render :show, status: :ok, location: @business }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @business.errors, status: :unprocessable_entity }
