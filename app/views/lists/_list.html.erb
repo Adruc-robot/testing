@@ -1,27 +1,7 @@
-<!--<div id="<%#= dom_id list %>">
-  <p>
-    <strong>Name:</strong>
-    <%#= list.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%#= list.description %>
-  </p>
-
-</div>-->
-
 <tr id="<%= dom_id list %>">
   <td><%= list.name %></td>
   <td><%= list.description %> </td>
   <td class="cAlign"><%= link_to edit_list_path(list), class: "aOverride" do %><i class="bi bi-pencil"></i><% end %></td>
   <td class="cAlign"><%= link_to [list], data: {turbo_method: :delete, turbo_confirm: "Delete list?"}, class: "aOverride" do %><i class="bi bi-trash3"></i><% end %></td>
-  <!--<td class="cAlign"><%#= link_to list_entries_path(:list_id => list_entries.list_id), class: "aOverride" do %><i class="bi bi-plus"></i>/<i class="bi bi-dash"></i></td><%# end %></td>-->
-  <!--<td class="cAlign"><%#= link_to list_entries_path(:id => list_entries.list_id), class: "aOverride" do %><i class="bi bi-plus"></i>/<i class="bi bi-dash"></i></td><%# end 
-  %></td>-->
-  <td class="cAlign"><%= link_to list_list_entries_path(list.id), class: "aOverride" do %><i class="bi bi-plus"></i>/<i class="bi bi-dash"></i></td><% end 
-  %></td>
-  <!--<td class="cAlign"><%#= link_to list_entries_path(:list_entries => list.list_id), class: "aOverride" do %><i class="bi bi-plus"></i>/<i class="bi bi-dash"></i></td><%# end 
-  %></td>-->
-
+  <td class="cAlign"><%= link_to new_list_list_entry_path(list), class: "aOverride" do %><i class="bi bi-plus"></i><% end %>/<%= link_to list_list_entries_path(list.id), class: "aOverride" do %><i class="bi bi-dash"></i><% end %></td>
 </tr>
