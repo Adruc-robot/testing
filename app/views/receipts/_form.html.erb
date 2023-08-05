@@ -37,15 +37,15 @@
   <div data-controller="categories">
     <div class="form-group">
       <%= form.label :category, style: "display: block" %>
-      <% if receipt.list_id == "" %>
-        <%= form.select :list_id, @lists.map { |l| [l.name, l.id ] }, { prompt: "Select a category"}, { class: "form-select", data: { action: "change->categories#change"}}, selected: receipt.list_id %>  
-      <% else %>
+      <% if receipt.list_id.blank? %>
         <%= form.select :list_id, @lists.map { |l| [l.name, l.id ] }, { prompt: "Select a category"}, { class: "form-select", data: { action: "change->categories#change"}} %>  
+      <% else %>
+        <%= form.select :list_id, @lists.map { |l| [l.name, l.id ] }, { prompt: "Select a category"}, { class: "form-select", data: { action: "change->categories#change"}}, selected: receipt.list_id %>  
       <% end %>
     </div>
     <div class="form-group">
       <%= form.label :sub_category, style: "display: block" %>
-      <% if receipt.list_entry_id == "" %>
+      <% if receipt.list_entry_id.blank? %>
         <%= form.select :list_entry_id, [],{ prompt: "Select a subcategory"}, {class: "form-select",data: { categories_target: "listSelect" } } %>
       <% else %>
         <%= form.select :list_entry_id, @list_entries.map { |le| [le.name, le.id] },{ prompt: "Select a subcategory"}, {class: "form-select", data: { categories_target: "listSelect" } } %>
