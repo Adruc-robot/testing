@@ -1,8 +1,8 @@
 <tr id="<%= dom_id receipt %>">
-  <td><%#= receipt.account.alias %></td>
+  <td><%= receipt.account.alias %></td>
   <td><%= receipt.business.name %></td>
-  <td><%#= List.find(receipt.list_id).name %></td>
-  <td><%#= ListEntry.find(receipt.list_entry_id).name %></td>
+  <td><%= List.find(receipt.list_id).name %></td>
+  <td><%= ListEntry.find(receipt.list_entry_id).name %></td>
   <td><%= receipt.subtotal %></td>
   <td><%= receipt.total %></td>
   <td class="dt-center"><%= link_to edit_receipt_path(receipt), class: "aOverride" do %><i class="bi bi-pencil"></i><% end %></td>
