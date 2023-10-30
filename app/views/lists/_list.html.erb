@@ -4,7 +4,12 @@
   
   </td>
   <td><%= list.description %> </td>
+<<<<<<< HEAD
   <td><%= link_to edit_list_path(list), class: "aOverride" do %><i class="bi bi-pencil"></i><% end %></td>
   <td><%= link_to [list], data: {turbo_method: :delete, turbo_confirm: "Delete category?"}, class: "aOverride" do %><i class="bi bi-trash3"></i><% end %></td>
+=======
+  <td><%= link_to edit_list_path(list), class: "aOverride" do %><i class="bi bi-pencil" data-toggle="tooltip" data-placement="bottom" title="Edit"></i><% end %></td>
+  <td><%= link_to [list], data: {turbo_method: :delete, turbo_confirm: "Delete list?"}, class: "aOverride" do %><i class="bi bi-trash3"></i><% end %></td>
+>>>>>>> eb2010a2c011faf48567bc9a2f892f3862a84515
   <td><%= link_to new_list_list_entry_path(list), class: "aOverride" do %><i class="bi bi-plus"></i><% end %>/<%= link_to list_list_entries_path(list.id), class: "aOverride" do %><i class="bi bi-dash"></i><% end %></td>
 </tr>
