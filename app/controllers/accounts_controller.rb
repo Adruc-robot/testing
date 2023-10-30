@@ -13,10 +13,12 @@ class AccountsController < ApplicationController
   # GET /accounts/new
   def new
     @account = Account.new
+    @form_text = "Create account"
   end
 
   # GET /accounts/1/edit
   def edit
+    @form_text = "Save"
   end
 
   # POST /accounts or /accounts.json

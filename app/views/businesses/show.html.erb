@@ -3,8 +3,8 @@
 <%= render @business %>
 
 <div>
-  <%= link_to "Edit this business", edit_business_path(@business) %> |
-  <%= link_to "Back to businesses", businesses_path %>
+  <%= link_to "Edit this payee / vendor", edit_business_path(@business) %> |
+  <%= link_to "Back to payees / vendors", businesses_path %>
 
-  <%= button_to "Destroy this business", @business, method: :delete %>
+  <%= button_to "Destroy this payee / vendor", @business, method: :delete %>
 </div>

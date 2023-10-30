@@ -14,10 +14,12 @@ class BusinessesController < ApplicationController
   # GET /businesses/new
   def new
     @business = Business.new
+    @form_txt = "Create payee / vendor"
   end
 
   # GET /businesses/1/edit
   def edit
+    @form_txt = "Save"
   end
 
   # POST /businesses or /businesses.json

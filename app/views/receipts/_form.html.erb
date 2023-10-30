@@ -58,12 +58,12 @@
     <%= form.number_field :subtotal, step: 0.01, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mb-3">
     <%= form.label :total, style: "display: block" %>
     <%= form.number_field :total, step: 0.01, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.submit class: "btn btn-primary" %>
+    <%= form.submit @form_txt, class: "btn btn-primary" %>
   </div>
 <% end %>

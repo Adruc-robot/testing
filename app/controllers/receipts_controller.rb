@@ -20,6 +20,7 @@ class ReceiptsController < ApplicationController
     @businesses = Business.where(user_id: current_user.id)
     @lists = List.where(user_id: current_user.id)
     @accounts = Account.where(user_id: current_user.id)
+    @form_txt = "Create receipt"
   end
 
   # GET /receipts/1/edit
@@ -28,6 +29,7 @@ class ReceiptsController < ApplicationController
     @lists = List.where(user_id: current_user.id)
     @list_entries = ListEntry.where(list_id: @receipt.list_id)
     @accounts = Account.where(user_id: current_user.id)
+    @form_txt = "Save"
   end
 
   # POST /receipts or /receipts.json

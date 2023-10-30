@@ -14,10 +14,12 @@ class ListsController < ApplicationController
   # GET /lists/new
   def new
     @list = List.new
+    @form_txt = "Create category"
   end
 
   # GET /lists/1/edit
   def edit
+    @form_txt = "Save"
   end
 
   # POST /lists or /lists.json

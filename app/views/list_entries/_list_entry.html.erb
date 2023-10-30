@@ -1,6 +1,6 @@
 <tr id= "<%= dom_id list_entry %>">
   <td><%= list_entry.name%></td>
   <td><%= list_entry.order_number%></td>
-  <td class="dt-center"><%= link_to edit_list_list_entry_path(list_id: list_entry.list_id, id: list_entry.id), class: "aOverride" do %><i class="bi bi-pencil"></i><% end %></td>
-  <td class="dt-center"><%= link_to [@list, list_entry], data: {turbo_method: :delete, turbo_confirm: "Delete list entry?"}, class: "aOverride" do %><i class="bi bi-trash3"></i><% end %></td>
+  <td><%= link_to edit_list_list_entry_path(list_id: list_entry.list_id, id: list_entry.id), class: "aOverride" do %><i class="bi bi-pencil"></i><% end %></td>
+  <td><%= link_to [@list, list_entry], data: {turbo_method: :delete, turbo_confirm: "Delete list entry?"}, class: "aOverride" do %><i class="bi bi-trash3"></i><% end %></td>
 </tr>

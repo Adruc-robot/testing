@@ -15,16 +15,16 @@
     <%= form.number_field :user_id, id: :list_user_id, value: current_user.id, type: :hidden %>
   </div>
   <div class="form-group">
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label "Category name", style: "display: block" %>
     <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mb-3">
     <%= form.label :description, style: "display: block" %>
     <%= form.text_field :description, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.submit class: "btn btn-primary"  %>
+    <%= form.submit @form_txt, class: "btn btn-primary"   %>
   </div>
 <% end %>

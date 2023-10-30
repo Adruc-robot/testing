@@ -1,12 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>List entries</h1>
+<h1><%= @list.name %> items</h1>
 
 <table id="lists" class="table table-striped" data-controller="dataTables">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Order number</th>
+      <th>Item</th>
+      <th>Priority</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
@@ -17,4 +17,4 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to "New list entry", new_list_list_entry_path(@list) %>
+<%= link_to "New " + @list.name + " item", new_list_list_entry_path(@list) %>

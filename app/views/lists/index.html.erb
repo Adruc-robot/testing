@@ -1,15 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Lists</h1>
-
-<!--<div id="lists">
-  <%# @lists.each do |list| %>
-    <%#= render list %>
-    <p>
-      <%#= link_to "Show this list", list %>
-    </p>
-  <%# end %>
-</div>-->
+<h1>My Categories</h1>
 
 <table id="lists" class="table table-striped" data-controller="dataTables">
   <thead>
@@ -18,7 +9,7 @@
       <th>Description</th>
       <th>Edit</th>
       <th>Delete</th>
-      <th>+/- list items</th>
+      <th>+/- category items</th>
     </tr>
   </thead>
   <tbody>
@@ -28,4 +19,4 @@
   </tbody>
 </table>
 
-<%= link_to "New list", new_list_path %>
+<%= link_to "New category", new_list_path %>

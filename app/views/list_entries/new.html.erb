@@ -1,9 +1,9 @@
-<h1>New list entry</h1>
+<h1>New <%= @list.name %> item</h1>
 
 <%= render "form", list_entry: @list_entry %>
 
 <br>
 
 <div>
-  <%= link_to "Back to list entries", list_list_entries_path(@list.id) %>
+  <%= link_to "Back to " + @list.name + " items", list_list_entries_path(@list.id) %>
 </div>

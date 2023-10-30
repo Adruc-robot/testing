@@ -1,7 +1,7 @@
 <%= form_with(model: business) do |form| %>
   <% if business.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
+      <h2><%= pluralize(business.errors.count, "error") %> prohibited this payee/vendor from being saved:</h2>
 
       <ul>
         <% business.errors.each do |error| %>
@@ -30,12 +30,12 @@
     <%= form.text_field :phone_number, class: "form-control " %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mb-3">
     <%= form.label :notes, style: "display: block" %>
     <%= form.text_area :notes, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.submit class: "btn btn-primary"  %>
+    <%= form.submit @form_txt, class: "btn btn-primary"  %>
   </div>
 <% end %>

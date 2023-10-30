@@ -21,10 +21,12 @@ class ListEntriesController < ApplicationController
   def new
     #@list_entry = ListEntry.new
     @list_entry = @list.list_entries.new
+    @form_txt = "Create " + @list.name + " item"
   end
 
   # GET /list_entries/1/edit
   def edit
+    @form_txt = "Save"
   end
 
   # POST /list_entries or /list_entries.json
