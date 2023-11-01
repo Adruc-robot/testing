@@ -13,8 +13,6 @@
 
   <div>
     <%= form.number_field :user_id, id: :account_user_id, value: current_user.id, type: :hidden %>
-    <%#= form.label :user_id, style: "display: block" %>
-    <%#= form.text_field :user_id %>
   </div>
 
   <div class="form-group">
@@ -22,12 +20,12 @@
     <%= form.text_field :account_number, class: "form-control", pattern: '\d{4}' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mb-3">
     <%= form.label :alias, style: "display: block" %>
     <%= form.text_field :alias, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.submit class: "btn btn-primary" %>
+    <%= form.submit @form_text, class: "btn btn-primary" %>
   </div>
 <% end %>

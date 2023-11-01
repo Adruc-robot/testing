@@ -3,8 +3,10 @@
   <td><%= receipt.business.name %></td>
   <td><%= List.find(receipt.list_id).name %></td>
   <td><%= ListEntry.find(receipt.list_entry_id).name %></td>
-  <td><%= receipt.subtotal %></td>
-  <td><%= receipt.total %></td>
+  <td><%= number_to_currency(receipt.subtotal, unit: "$") %></td>
+  <td><%= number_to_currency(receipt.total, unit: "$") %></td>
+  <td><%= receipt.purchase_date %></td>
+  <td><%= receipt.po_number%></td>
   <td class="dt-center"><%= link_to edit_receipt_path(receipt), class: "aOverride" do %><i class="bi bi-pencil"></i><% end %></td>
   <td class="dt-center"><%= link_to [receipt], data: {turbo_method: :delete, turbo_confirm: "Delete receipt?"}, class: "aOverride" do %><i class="bi bi-trash3"></i><% end %></td>
 </tr>

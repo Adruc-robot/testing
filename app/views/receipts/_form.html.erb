@@ -20,7 +20,6 @@
   </div>
   <div class="form-group">
     <%= form.label :business_id, style: "display: block" %>
-    <%#= form.text_field :business_id %>
     <%= form.select :business_id, @businesses.map { |b| [b.name, b.id ] },{ prompt: "Select a business"}, {class: "form-select"} %>
   </div>
 
@@ -40,7 +39,7 @@
       <% if receipt.list_id.blank? %>
         <%= form.select :list_id, @lists.map { |l| [l.name, l.id ] }, { prompt: "Select a category"}, { class: "form-select", data: { action: "change->categories#change"}} %>  
       <% else %>
-        <%= form.select :list_id, @lists.map { |l| [l.name, l.id ] }, { prompt: "Select a category"}, { class: "form-select", data: { action: "change->categories#change"}}, selected: receipt.list_id %>  
+        <%= form.select :list_id, @lists.map { |l| [l.name, l.id ] }, { prompt: "Select a category"}, { class: "form-select", data: { action: "change->categories#change"}, selected: receipt.list_id }%>  
       <% end %>
     </div>
     <div class="form-group">
@@ -57,10 +56,18 @@
     <%= form.label :subtotal, style: "display: block" %>
     <%= form.number_field :subtotal, step: 0.01, class: "form-control" %>
   </div>
-
-  <div class="form-group mb-3">
+  <div class="form-group">
     <%= form.label :total, style: "display: block" %>
     <%= form.number_field :total, step: 0.01, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :purchase_date, style: "display: block" %>
+    <%= form.date_field :purchase_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :po_number, style: "display: block" %>
+    <%= form.text_field :po_number, class: "form-control" %>
   </div>
 
   <div>

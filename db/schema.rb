@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_03_225321) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_31_225140) do
   create_table "accounts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "account_number"
@@ -88,14 +88,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_225321) do
   create_table "receipts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "business_id", null: false
-    t.decimal "subtotal"
-    t.decimal "total"
+    t.decimal "subtotal", precision: 8, scale: 2
+    t.decimal "total", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image_description"
     t.integer "list_id"
     t.integer "list_entry_id"
     t.integer "account_id"
+    t.date "purchase_date"
+    t.string "po_number"
     t.index ["account_id"], name: "index_receipts_on_account_id"
     t.index ["business_id"], name: "index_receipts_on_business_id"
     t.index ["list_entry_id"], name: "index_receipts_on_list_entry_id"
