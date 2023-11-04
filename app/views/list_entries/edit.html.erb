@@ -1,10 +1,9 @@
-<h1>Editing list entry</h1>
+<h1>Editing <%= @list.name %> category item</h1>
 
 <%= render "form", list_entry: @list_entry %>
 
 <br>
 
 <div>
-  <%= link_to "Show this list entry", @list_entry %> |
-  <%= link_to "Back to list entries", list_entries_path %>
+  <%= link_to "Back to " + @list.name + " category items", list_entries_path %>
 </div>
