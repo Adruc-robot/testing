@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :list_entries
+  get 'reports/index'
   root "home#index"
   get 'home/index'
   get 'home/about'

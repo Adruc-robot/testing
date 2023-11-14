@@ -1,4 +1,8 @@
 <tr id= "<%= dom_id list_entry %>">
+  <!--<td><%#= list_entry.id%></td>
+  <td><%#= list_entry.list_id%></td>
+  <td><%#= list_entry.name%></td>
+  <td><%#= list_entry.order_number%></td>-->
   <td><%= list_entry.name%></td>
   <td><%= list_entry.order_number%></td>
   <td><%= link_to edit_list_list_entry_path(list_id: list_entry.list_id, id: list_entry.id), class: "aOverride" do %><i class="bi bi-pencil"></i><% end %></td>

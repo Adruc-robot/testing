@@ -1,4 +1,14 @@
 <tr id="<%= dom_id receipt %>">
+  <!--<td><%#= receipt.id %></td>
+  <td><%#= receipt.user_id %></td>
+  <td><%#= receipt.business_id %></td>
+  <td><%#= receipt.subtotal %></td>
+  <td><%#= receipt.total %></td>
+  <td><%#= receipt.list_id %></td>
+  <td><%#= receipt.list_entry_id %></td>
+  <td><%#= receipt.account_id %></td>
+  <td><%#= receipt.purchase_date %></td>
+  <td><%#= receipt.po_number %></td>-->
   <td><%= receipt.account.alias %></td>
   <td><%= receipt.business.name %></td>
   <td><%= List.find(receipt.list_id).name %></td>
