@@ -1,12 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= @list.name %> items</h1>
+<h1><%= @list.name %> expenses</h1>
 
 <table id="lists" class="table table-striped" data-controller="dataTables">
   <thead>
     <tr>
       <!--<th>id</th><th>list_id</th><th>name</th><th>order_number</th>-->
-      <th>Item</th>
+      <th>Expense</th>
       <th>Priority</th>
       <th>Edit</th>
       <th>Delete</th>
@@ -18,4 +18,4 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to "Back to my categories", lists_path %>
+<%= link_to "Add "+@list.name+" expense", new_list_list_entry_path(@list) %> | <%= link_to "Back to my categories", lists_path %>
